@@ -137,10 +137,9 @@
 
 (define (extract-α A αgen)
   (map
-   (λ (l) (string->symbol (apply string l)))
-   (map reverse
-        (cons (list (integer->char (+ 65 A)))
-              (map (λ (l) (cons (integer->char (+ 65 A)) l)) αgen)))))
+   (λ (l) (string->symbol (apply string (reverse l))))
+   (cons (list (integer->char (+ 65 A)))
+         (map (λ (l) (cons (integer->char (+ 65 A)) l)) αgen))))
 
 (define (itr n A SX Sμ Xenv μenv αgen)
   (cond
